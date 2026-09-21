@@ -186,7 +186,7 @@ for i in range(len(numbers) - len(result)):
 
 print(result)"""
 
-#Find the length of the longest consecutive increasing run.
+#[17] Find the length of the longest consecutive increasing run.
 """numbers = [2, 4, 6, 3, 5, 7, 8, 2, 10]
 
 current = 1
@@ -203,7 +203,7 @@ for i in range(1, len(numbers)):
 
 print(longest)"""
 
-#This is inspired by 2020 Ethiopian Collegiate Programming Contest Problem D — Good Arrays
+#[18] This is inspired by 2020 Ethiopian Collegiate Programming Contest Problem D — Good Arrays
 """s = "abca"
 count = 0
 for i in range(len(s)):
@@ -213,4 +213,108 @@ for i in range(len(s)):
             break
         seen.add(s[j])
         count += 1
+print(count)"""
+
+#[19] Find the number that appears the most times.
+"""numbers = [2, 5, 2, 7, 5, 2, 9, 7]
+frequency = {}
+# Count each number
+for x in numbers:
+    if x not in frequency:
+        frequency[x] = 1
+    else:
+        frequency[x] = frequency[x] + 1
+
+# Find the number with the largest frequency
+most_common = None
+largest_count = 0
+
+for number in frequency:
+    if frequency[number] > largest_count:
+        largest_count = frequency[number]
+        most_common = number
+print(most_common)"""
+
+# [20] Find their GCD (Greatest Common Divisor).
+"""a = 24
+b = 36
+largest = 0
+for x in range(1,25):
+   if a % x ==0 and b % x == 0 and x > largest:
+      largest = x
+print(largest) """
+# OR best way for ICPC
+"""a = 36
+b = 24
+
+while b != 0:
+    remainder = a % b
+    a = b
+    b = remainder
+
+print(a)"""
+
+#[21] is a prime number.
+"""a = int(input("write what evere number you need and i will tell you if the number is prime "))
+prime_num = True
+for x in range(2,a):
+  if a % x == 0:
+    prime_num = False
+    break
+if prime_num:
+  print("prime")
+else:
+  print("not prime")"""
+
+#[22]Find how many of these numbers are prime in ICPC approach.
+"""import math
+numbers = [17, 20, 23, 25, 31]
+count = 0
+for x in numbers:
+  prime_num = True
+  for p in range(2,math.isqrt(x) + 1):
+    if x % p == 0:
+      prime_num = False
+      break
+  if prime_num:
+    count+=1
+print(count)"""
+
+#[23] Find its prime factorization.
+"""n = 60
+q = 2
+while q <= n:
+  while n % q == 0:
+    print(q)
+    n = n // q
+  
+  q += 1 """
+
+# [24] find LCM and GCD
+"""a = 24
+b = 36
+x = a
+y = b
+while y != 0:
+  remainder = x % y
+  x = y
+  y = remainder
+lcm = a * b // x
+print("LCM =", lcm)
+print("GCD =", x)"""
+
+#[25] Count how many numbers are divisible by 5.
+"""numbers = [12, 17, 20, 25, 31, 40]
+count = 0
+for num in numbers:
+  if num % 5 == 0:
+    count+=1
+print(count)"""
+
+#[26] Count how many numbers are divisible by both 3 AND 5.
+"""numbers = [12, 15, 18, 20, 24, 30, 35, 40]
+count = 0
+for num in numbers:
+  if num % 3 == 0 or num % 5 == 0:
+    count+=1
 print(count)"""
