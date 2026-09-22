@@ -318,3 +318,51 @@ for num in numbers:
   if num % 3 == 0 or num % 5 == 0:
     count+=1
 print(count)"""
+
+# Given an array of integers, find the most frequent number.
+#If two numbers have the same frequency, choose the smaller number.
+"""numbers = [4, 2, 4, 3, 2, 4, 2]
+num = {}
+for x in numbers:
+  if x not in num:
+    num[x] = 1
+  else:
+    num[x] = num[x] + 1
+print(num)
+largest = 0
+most_common = None
+
+for number in num:
+  if num[number] > largest or (num[number] == largest and number < most_common):
+    largest = num[number]
+    most_common = number
+print(most_common)"""
+
+#Find the smallest number that appears exactly 3 times.
+"""numbers = [4, 2, 7, 4, 2, 7, 9, 4, 2, 5]
+seen ={}
+for num in numbers:
+  if num not in seen:
+    seen[num] = 1
+  else:
+    seen[num] +=1
+print(seen)
+smallest = None
+for number in seen:
+  if seen[number] == 3:
+     if smallest is None or number < smallest:
+        smallest = number
+print(smallest)"""
+
+#a sorted array, remove duplicates in-place so each unique element appears once, then return the number of unique elements k
+"""nums = [0, 0, 1, 1, 2, 2, 3, 4, 5]
+
+k = 1
+
+for i in range(1, len(nums)):
+    if nums[i] != nums[i - 1]:
+        nums[k] = nums[i]
+        k += 1
+
+print(k)
+print(nums)"""
