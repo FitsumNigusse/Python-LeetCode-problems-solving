@@ -319,7 +319,7 @@ for num in numbers:
     count+=1
 print(count)"""
 
-# Given an array of integers, find the most frequent number.
+# [27] Given an array of integers, find the most frequent number.
 #If two numbers have the same frequency, choose the smaller number.
 """numbers = [4, 2, 4, 3, 2, 4, 2]
 num = {}
@@ -338,7 +338,7 @@ for number in num:
     most_common = number
 print(most_common)"""
 
-#Find the smallest number that appears exactly 3 times.
+#[28] Find the smallest number that appears exactly 3 times.
 """numbers = [4, 2, 7, 4, 2, 7, 9, 4, 2, 5]
 seen ={}
 for num in numbers:
@@ -354,7 +354,7 @@ for number in seen:
         smallest = number
 print(smallest)"""
 
-#a sorted array, remove duplicates in-place so each unique element appears once, then return the number of unique elements k
+#[30] a sorted array, remove duplicates in-place so each unique element appears once, then return the number of unique elements k
 """nums = [0, 0, 1, 1, 2, 2, 3, 4, 5]
 
 k = 1
@@ -366,3 +366,93 @@ for i in range(1, len(nums)):
 
 print(k)
 print(nums)"""
+
+#[31] Given an integer x, reverse its digits and return the reversed number.
+"""x = -123
+reverse = 0
+negative = x < 0
+x = abs(x)
+while x != 0:
+  last_digit = x % 10
+  x = x // 10
+  reverse = reverse * 10 + last_digit
+if negative:
+  reverse = -reverse
+print(reverse)"""
+#[32] find the length of the last word in the string.
+"""s = "hello world"
+word = s.split()
+last_word = len(word[-1])
+print(last_word)"""
+#For example if n = 1, then his feeling is "I hate it" or 
+# if n = 2 it's "I hate that I love it", 
+# and if n = 3 it's "I hate that I love that I hate it" and so on
+"""n = int(input())
+answer = ""
+for i in range(1, n + 1):
+  if i % 2 == 1:
+    if i == n:
+      answer += "I hate it"
+    else:
+      answer += "I hate that "
+  else:
+    if i == n:
+      answer += "I love it"
+    else:
+      answer += "I love that "
+print(answer)
+  """
+#Given three distinct integers a, b, and c, find the medium number between all of them.
+"""n = int(input())
+for i in range(n):
+  a, b, c  = map(int, input().split())
+  if a < b < c or c < b < a:
+    print(b)
+  elif b < a < c or c < a < b:
+    print(a)
+  elif a < c < b or b < c < a:
+    print(c)"""
+
+#You are given three integers a, b, and c such that exactly one of these two equations is true:
+# a + b = c
+# a − b = c
+#Output + if the first equation is true, and - otherwise.
+"""n = int(input())
+for i in range(n):
+  a, b, c = map(int, input().split())
+  if a + b == c:
+    print("+")
+  elif a - b == c:
+    print("-")"""
+
+# An elephant decided to visit his friend. 
+# It turned out that the elephant's house is located at point 0 
+# and his friend's house is located at point x(x > 0) of the coordinate line. 
+# In one step the elephant can move 1, 2, 3, 4 or 5 positions forward. 
+# Determine, what is the minimum number of steps he need to make in order to get to his friend's house.
+"""x = int(input())
+steps = x // 5
+if x % 5 != 0:
+  steps += 1
+print(steps)"""
+
+# Codeforces separates its users into 4
+#  divisions by their rating:
+
+# For Division 1: 1900≤rating
+# For Division 2: 1600≤rating≤1899
+# For Division 3: 1400≤rating≤1599
+# For Division 4: rating≤1399
+
+"""x = int(input())
+for i in range(x):
+  rating = int(input())
+  if rating <= 1399:
+    print("Division 4")
+  elif 1400<= rating <= 1599:
+    print("Division 3")
+  elif 1600 <= rating <= 1899:
+    print("Division 2")
+  elif 1900 <= rating:
+     print("Division 1")"""
+
