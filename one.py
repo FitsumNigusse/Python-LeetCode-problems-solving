@@ -456,3 +456,175 @@ for i in range(x):
   elif 1900 <= rating:
      print("Division 1")"""
 
+# she can't calculate sum 1+3+2+1 but she can calculate sums 1+1+2 and 3+3.
+# You've got the sum that was written on the board. 
+# Rearrange the summans and print the sum in such a way that Xenia can calculate the sum.
+"""s = str(input())  
+numbers = s.split("+")
+numbers.sort()
+result = "+".join(numbers)
+print(result)"""
+
+# Bear Limak wants to become the largest of bears, or at least to become larger than his brother Bob.
+# Right now, Limak and Bob weigh a and b respectively.
+#  It's guaranteed that Limak's weight is smaller than or equal to his brother's weight.
+# Limak eats a lot and his weight is tripled after every year, while Bob's weight is doubled after every year.
+# After how many full years will Limak become strictly larger (strictly heavier) than Bob?
+
+"""count = 0
+a, b = map(int, input().split())
+while True:
+  if a <= b:
+    a = a * 3
+    b = b * 2
+    count += 1
+  elif a > b:
+    break
+print(count)"""
+
+# A soldier wants to buy w bananas in the shop. 
+# He has to pay k dollars for the first banana, 2k dollars for the second one and so on 
+# (in other words, he has to pay i·k dollars for the i-th banana).
+# He has n dollars. How many dollars does he have to borrow from his friend soldier to buy w bananas?
+
+"""k, n, w = map(int, input().split())
+
+total = 0
+
+for i in range(1, w + 1):
+    price = i * k
+    total += price
+
+borrow = total - n
+
+if borrow < 0:
+    borrow = 0
+
+print(borrow)"""
+
+#There are n stones on the table in a row,
+#  each of them can be red, green or blue. 
+# Count the minimum number of stones to take from the table 
+# so that any two neighboring stones had different colors. 
+# Stones in a row are considered neighboring if there are no other stones between them.
+
+"""n = int(input())
+s = str(input())
+count = 0
+for i in range(n - 1):
+  if s[i] == s[i + 1]:
+    count += 1
+print(count)"""
+
+# Little girl Tanya is learning how to decrease a number by one,
+#  but she does it wrong with a number consisting of two or more digits. 
+# Tanya subtracts one from a number by the following algorithm:
+# if the last digit of the number is non-zero, she decreases the number by one;
+# if the last digit of the number is zero, she divides the number by 10 (i.e. removes the last digit).
+
+"""n, k = map(int, input().split())
+
+for i in range(k):
+    if n % 10 == 0:
+        n = n // 10
+    else:
+        n = n - 1
+
+print(n)"""
+
+# Petya loves lucky numbers. We all know that lucky numbers are the positive 
+# integers whose decimal representations contain only the lucky digits 4 and 7. 
+# For example, numbers 47, 744, 4 are lucky and 5, 17, 467 are not.
+# Unfortunately, not all numbers are lucky. 
+# Petya calls a number nearly lucky if the number of lucky digits in it is a lucky number. 
+# He wonders whether number n is a nearly lucky number.
+# Print on the single line "YES" if n is a nearly lucky number. Otherwise, print "NO" (without the quotes).
+
+"""n = int(input())
+
+count = 0
+
+while n > 0:
+    digit = n % 10
+
+    if digit == 4 or digit == 7:
+        count += 1
+
+    n = n // 10
+
+if count == 4 or count == 7:
+    print("YES")
+else:
+    print("NO")"""
+
+# Petya started to attend programming lessons. 
+# On the first lesson his task was to write a simple program. 
+# The program was supposed to do the following: in the given string, 
+# consisting if uppercase and lowercase Latin letters, it:
+# deletes all the vowels,
+# inserts a character "." before each consonant,
+# replaces all uppercase consonants with corresponding lowercase ones.
+
+"""vowels = ["a", "e", "i", "o", "u", "y"]
+
+s = input()
+s = s.lower()
+
+final = ""
+
+for char in s:
+    if char not in vowels:
+        final += "." + char
+
+print(final)"""
+
+# Petya wants to compare those two strings lexicographically. 
+# If the first string is less than the second one, print "-1". 
+# If the second string is less than the first one, print "1". 
+# If the strings are equal, print "0". 
+# Note that the letters' case is not taken into consideration when the strings are compared.
+
+"""s1 = input().lower()
+s2 = input().lower()
+if s1 < s2 :
+  print(-1)
+elif s2 < s1:
+  print(1)
+else:
+  print(0)
+"""
+
+# Input
+# The first line contains a positive integer n (1 ≤ n ≤ 100), then follow n lines containing three integers each: the xi coordinate, the yi coordinate and the zi coordinate of the force vector, 
+# applied to the body ( - 100 ≤ xi, yi, zi ≤ 100).
+# Output
+# Print the word "YES" if the body is in equilibrium, or the word "NO" if it is not.
+
+"""n = int(input())
+
+x_sum = 0
+y_sum = 0
+z_sum = 0
+
+for i in range(n):
+    x, y, z = map(int, input().split())
+
+    x_sum += x
+    y_sum += y
+    z_sum += z
+
+if x_sum == 0 and y_sum == 0 and z_sum == 0:
+    print("YES")
+else:
+    print("NO")
+"""
+
+# Given a two-digit positive integer n
+# , find the sum of its digits.
+
+"""t = int(input())
+for i in range(t):
+    num = int(input())
+    x = num % 10
+    y = num // 10
+    print(x + y)"""
