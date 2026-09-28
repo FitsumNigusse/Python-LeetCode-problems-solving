@@ -628,3 +628,132 @@ for i in range(t):
     x = num % 10
     y = num // 10
     print(x + y)"""
+
+
+"""x = int(input())
+
+if x < 0:
+    print("False")
+else:
+    original = x
+    reverse = 0
+
+    while x != 0:
+        reman = x % 10
+        x = x // 10
+        reverse = reverse * 10 + reman
+
+    if original == reverse:
+        print("True")
+    else:
+        print("False")"""
+
+# It seems like the year of 2013 came only yesterday. 
+# Do you know a curious fact? The year of 2013 is the first year after the old 1987 with only distinct digits.
+# Now you are suggested to solve the following problem: 
+# given a year number, find the minimum year number which is strictly larger than the given one
+#  and has only distinct digits.
+
+"""y = int(input())
+y += 1
+while len(set(str(y))) != 4:
+  y += 1
+print(y)"""
+
+# If the word t is a word s, written reversely, print YES, otherwise print NO.
+"""s = input()
+t = input()
+
+s = s[::-1]
+
+if s == t:
+    print("YES")
+else:
+    print("NO")"""
+
+# If Anton won more games than Danik, print "Anton" (without quotes) in the only line of the output.
+# If Danik won more games than Anton, print "Danik" (without quotes) in the only line of the output.
+# If Anton and Danik won the same number of games, print "Friendship" (without quotes).
+"""n = input()
+winer = str(input())
+dani = 0
+anto = 0
+for i in winer:
+  if i == "D":
+    dani += 1
+  else:
+    anto += 1
+if dani > anto:
+  print("Danik")
+elif dani == anto:
+  print("Friendship")
+else:
+  print("Anton")"""
+
+# Input
+# The first line of the input contains two integers n and h (1 ≤ n ≤ 1000, 1 ≤ h ≤ 1000) — the number of friends and the height of the fence, respectively.
+# The second line contains n integers ai (1 ≤ ai ≤ 2h), the i-th of them is equal to the height of the i-th person.
+# Output
+# Print a single integer — the minimum possible valid width of the road.
+
+"""n,h = map(int, input().split())
+height = list(map(int, input().split()))
+width =  0
+for i in height:
+    if i <= h:
+        width += 1
+    else:
+        width += 2
+print(width)"""
+
+#  If there are at least 7 players of some team standing one after another, 
+# then the situation is considered dangerous. 
+# For example, the situation 00100110111111101 is dangerous 
+# and 11110111011101 is not. You are given the current situation. 
+# Determine whether it is dangerous or not.
+# Print "YES" if the situation is dangerous. Otherwise, print "NO".
+"""player = input()
+
+dangerous = False
+
+for i in range(len(player)):
+    if player[i:i+7] == "1111111" or player[i:i+7] == "0000000":
+        dangerous = True
+        break
+
+if dangerous:
+    print("YES")
+else:
+    print("NO")"""
+
+# At the first stop, the number of passengers inside the tram before arriving is 0. Then, 3 passengers enter the tram, and the number of passengers inside the tram becomes 3.
+# At the second stop, 2 passengers exit the tram (1 passenger remains inside). Then, 5 passengers enter the tram. There are 6 passengers inside the tram now.
+# At the third stop, 4 passengers exit the tram (2 passengers remain inside). Then, 2 passengers enter the tram. There are 4 passengers inside the tram now.
+# Finally, all the remaining passengers inside the tram exit the tram at the last stop. There are no passenger inside the tram now, which is in line with the constraints.
+
+"""n = int(input())
+people = 0
+max = 0
+for i in range(n):
+    a, b = map(int,input().split())
+    people = people - a + b
+    if people > max:
+        max = people
+print(max)"""
+# The second line contains nintegers, each integer is either 0 or 1
+# If i-th integer is 0, then i-th person thinks that the problem is easy; if it is 1, then i-th person thinks that the problem is hard.
+
+"""n = int(input())
+rate = list(map(int, input().split()))
+if 1 in rate:
+    print("HARD")
+else:
+    print("EASY")"""
+
+"""n = int(input())
+count = 0
+for i in range(n):
+  a, b = map(int, input().split())
+  if b - a >= 2:
+    count += 1
+print(count)"""
