@@ -757,3 +757,69 @@ for i in range(n):
   if b - a >= 2:
     count += 1
 print(count)"""
+
+# For a positive integer n let's define a function f:
+# f(n) =  - 1 + 2 - 3 + .. + ( - 1)nn
+# Your task is to calculate f(n) for a given integer n.
+#  solution : even = n // 2     odd = - (n + 1)// 2
+
+"""n = int(input())
+
+if n % 2 == 0:
+    print(n // 2)
+else:
+    print(-(n + 1) // 2)"""
+
+#[266B] The first line contains two integers n and t (1 ≤ n, t ≤ 50), which represent the number of children in the queue and the time after which the queue will transform into the arrangement you need to find.
+# The next line contains string s, which represents the schoolchildren's initial arrangement. If the i-th position in the queue contains a boy, then the i-th character of string s equals "B", otherwise the i-th character equals "G".
+# Output
+# Print string a, which describes the arrangement after t seconds. If the i-th position has a boy after the needed time, then the i-th character a must equal "B", otherwise it must equal "G".
+
+"""n, t = map(int, input().split())
+s = input()
+for _ in range(t):
+    s = s.replace('BG', 'GB')
+print(s)
+"""
+
+# The first line of the input contains an integer n (1 ≤ n ≤ 100000) — the number of magnets.
+#  Then n lines follow. The i-th line (1 ≤ i ≤ n) contains either characters "01", if Mike put the i-th magnet in the "plus-minus" position, or characters "10", 
+# if Mike put the magnet in the "minus-plus" position.
+# Output
+# On the single line of the output print the number of groups of magnets.
+
+"""n = int(input())
+
+previous = input()
+groups = 1
+same = 0
+
+for i in range(1, n):
+    current = input()
+
+    if current == previous:
+        same += 1
+
+    previous = current
+
+print(n - same)"""
+
+# [200B] find average
+"""n = int(input())
+p = list(map(int, input().split()))
+
+total = sum(p)
+answer = total / n
+
+print(answer)"""
+
+# [136A] cood force problems
+"""n = int(input())
+p = list(map(int, input().split()))
+
+answer = [0] * n
+
+for i in range(n):
+    answer[p[i] - 1] = i + 1
+
+print(*answer)"""
