@@ -823,3 +823,553 @@ for i in range(n):
     answer[p[i] - 1] = i + 1
 
 print(*answer)"""
+
+# Read the four numbers: x, y, z, and n.
+# For the first coordinate, try every number from 0 to x:
+# For the second coordinate, try every number from 0 to y:
+# For the third coordinate, try every number from 0 to z:
+# For every combination, make a list:[i, j, k]
+
+"""x = int(input())
+y = int(input())
+z = int(input())
+n = int(input())
+
+answer = [[i, j, k]
+          for i in range(x + 1)
+          for j in range(y + 1)
+          for k in range(z + 1)
+          if i + j + k != n]
+
+print(answer)"""
+
+# You are given a 2D integer array ranges and two integers left and right. 
+# Each ranges[i] = [starti, endi] represents an inclusive interval between starti and endi.
+# Return true if each integer in the inclusive range [left, right] is covered by at least one interval in ranges. 
+# Return false otherwise.
+
+"""class Solution:
+    def isCovered(self, ranges: list[list[int]], left: int, right: int) -> bool:
+        for number in range(left, right + 1):
+            covered = False
+
+            for r in ranges:
+                if r[0] <= number <= r[1]:
+                    covered = True
+                    break
+
+            if not covered:
+                return False
+
+        return True"""
+
+# find the missing number from array
+"""def missingNumber(a):
+    n = len(a)
+
+    expected = n * (n + 1) // 2
+    actual = sum(a)
+
+    return expected - actual"""
+
+# Input: matches = [[1,3],[2,3],[3,6],[5,6],[5,7],[4,5],[4,8],[4,9],[10,4],[10,9]]
+# Output: [[1,2,10],[4,5,7,8]]
+# Explanation:
+# Players 1, 2, and 10 have not lost any matches.
+# Players 4, 5, 7, and 8 each have lost one match.
+# Players 3, 6, and 9 each have lost two matches.
+# Thus, answer[0] = [1,2,10] and answer[1] = [4,5,7,8].
+# Example 2:
+# Input: matches = [[2,3],[1,3],[5,4],[6,4]]
+# Output: [[1,2,5,6],[]]
+# Explanation:
+# Players 1, 2, 5, and 6 have not lost any matches.
+# Players 3 and 4 each have lost two matches.
+# Thus, answer[0] = [1,2,5,6] and answer[1] = [].
+
+"""class Solution:
+    def findWinners(self, matches):
+        losses = {}
+        players = set()
+
+        for winner, loser in matches:
+            players.add(winner)
+            players.add(loser)
+
+            if loser not in losses:
+                losses[loser] = 0
+
+            losses[loser] += 1
+
+        no_loss = []
+        one_loss = []
+
+        for player in players:
+            if player not in losses:
+                no_loss.append(player)
+            elif losses[player] == 1:
+                one_loss.append(player)
+
+        no_loss.sort()
+        one_loss.sort()
+
+        return [no_loss, one_loss]"""
+
+
+# finding from the dectionery some values
+"""n = int(input())
+
+phone_book = {}
+
+for _ in range(n):
+    name, number = input().split()
+    phone_book[name] = number
+
+while True:
+    try:
+        name = input()
+
+        if name in phone_book:
+            print(name + "=" + phone_book[name])
+        else:
+            print("Not found")
+
+    except EOFError:
+        break"""
+
+#  this is how to change string by it index number
+"""def mutate_string(string, position, character):
+    length  = list(string)
+    length[position] = character
+    string = ''.join(length)
+    return string
+
+if __name__ == '__main__':
+    s = input()
+    i, c = input().split()
+    s_new = mutate_string(s, int(i), c)
+    print(s_new)"""
+
+# Given an integer n, return a string array answer (1-indexed) where:
+# answer[i] == "FizzBuzz" if i is divisible by 3 and 5.
+# answer[i] == "Fizz" if i is divisible by 3.
+# answer[i] == "Buzz" if i is divisible by 5.
+# answer[i] == i (as a string) if none of the above conditions are true.
+# Example 1:
+# Input: n = 3
+# Output: ["1","2","Fizz"]
+# Example 2:
+# Input: n = 5
+# Output: ["1","2","Fizz","4","Buzz"]
+# Example 3:
+# Input: n = 15
+# Output: ["1","2","Fizz","4","Buzz","Fizz","7","8","Fizz","Buzz","11","Fizz","13","14","FizzBuzz"]"""
+"""
+n = int(input())
+seen = []
+for i in range(1, n+1):
+  if i % 3 == 0 and i % 5 == 0:
+    seen.append("FizzBuzz")
+  elif i % 3 == 0:
+    seen.append("Fizz")
+  elif i % 5 == 0:
+    seen.append("Buzz")
+  else:
+    seen.append(str(i))
+print(seen) """
+
+
+# Given the array nums, for each nums[i] find out how many numbers in the array are smaller than it. That is, for each nums[i] you have to count the number of valid j's such that j != i and nums[j] < nums[i].
+# Return the answer in an array.
+# Example 1:
+# Input: nums = [8,1,2,2,3]
+# Output: [4,0,1,1,3]
+# Explanation: 
+# For nums[0]=8 there exist four smaller numbers than it (1, 2, 2 and 3). 
+# For nums[1]=1 does not exist any smaller number than it.
+# For nums[2]=2 there exist one smaller number than it (1). 
+# For nums[3]=2 there exist one smaller number than it (1). 
+# For nums[4]=3 there exist three smaller numbers than it (1, 2 and 2).
+# Example 2:
+# Input: nums = [6,5,4,8]
+# Output: [2,1,0,3]
+# Example 3:
+# Input: nums = [7,7,7,7]
+# Output: [0,0,0,0]
+
+"""nums = [6,5,4,8]
+count = 0
+seen = []
+for i in range(len(nums)):
+  count = 0
+  for j in range(len(nums)):
+    if nums[i] > nums[j]:
+       count +=1
+  
+  seen.append(count)
+  
+print(seen)"""
+
+# There is a programming language with only four operations and one variable X:
+# ++X and X++ increments the value of the variable X by 1.
+# --X and X-- decrements the value of the variable X by 1.
+# Initially, the value of X is 0.
+# Given an array of strings operations containing a list of operations, return the final value of X after performing all the operations.
+# Example 1:
+# Input: operations = ["--X","X++","X++"]
+# Output: 1
+# Explanation: The operations are performed as follows:
+# Initially, X = 0.
+# --X: X is decremented by 1, X =  0 - 1 = -1.
+# X++: X is incremented by 1, X = -1 + 1 =  0.
+# X++: X is incremented by 1, X =  0 + 1 =  1.
+# Example 2:
+
+# Input: operations = ["++X","++X","X++"]
+# Output: 3
+# Explanation: The operations are performed as follows:
+# Initially, X = 0.
+# ++X: X is incremented by 1, X = 0 + 1 = 1.
+# ++X: X is incremented by 1, X = 1 + 1 = 2.
+# X++: X is incremented by 1, X = 2 + 1 = 3.
+# Example 3:
+
+# Input: operations = ["X++","++X","--X","X--"]
+# Output: 0
+# Explanation: The operations are performed as follows:
+# Initially, X = 0.
+# X++: X is incremented by 1, X = 0 + 1 = 1.
+# ++X: X is incremented by 1, X = 1 + 1 = 2.
+# --X: X is decremented by 1, X = 2 - 1 = 1.
+# X--: X is decremented by 1, X = 1 - 1 = 0.
+
+# x = 0
+# for i in operations:
+#   if i == "X++" or i == "++X":
+#     x+=1
+#   else:
+#     x-=1
+# print(x)"""
+
+# """Given a string array words, return an array of all characters that show up in all strings within the words (including duplicates). You may return the answer in any order.
+# Example 1:
+# Input: words = ["bella","label","roller"]
+# Output: ["e","l","l"]
+# Example 2:
+# Input: words = ["cool","lock","cook"]
+# Output: ["c","o"]
+"""class Solution:
+    def commonChars(self, words: list[str]) -> list[str]:
+        common = {}
+
+        # Count characters in the first word
+        for ch in words[0]:
+            if ch not in common:
+                common[ch] = 1
+            else:
+                common[ch] += 1
+
+        # Compare with the other words
+        for word in words[1:]:
+            count = {}
+
+            for ch in word:
+                if ch not in count:
+                    count[ch] = 1
+                else:
+                    count[ch] += 1
+
+            # Keep the smaller count
+            for ch in list(common):
+                if ch in count:
+                    common[ch] = min(common[ch], count[ch])
+                else:
+                    common[ch] = 0
+
+        # Build the answer
+        answer = []
+
+        for ch in common:
+            for _ in range(common[ch]):
+                answer.append(ch)
+
+        return answer"""
+
+# Given an integer array nums of length n, you want to create an array ans of length 2n where ans[i] == nums[i] and ans[i + n] == nums[i] for 0 <= i < n (0-indexed).
+# Specifically, ans is the concatenation of two nums arrays.
+# Return the array ans.
+# Example 1:
+# Input: nums = [1,2,1]
+# Output: [1,2,1,1,2,1]
+# Explanation: The array ans is formed as follows:
+# - ans = [nums[0],nums[1],nums[2],nums[0],nums[1],nums[2]]
+# - ans = [1,2,1,1,2,1]
+# Example 2:
+# Input: nums = [1,3,2,1]
+# Output: [1,3,2,1,1,3,2,1]
+# Explanation: The array ans is formed as follows:
+# - ans = [nums[0],nums[1],nums[2],nums[3],nums[0],nums[1],nums[2],nums[3]]
+# - ans = [1,3,2,1,1,3,2,1]
+"""
+nums = [1,3,2,1]
+con = []
+for i in nums:
+  con.append(i)
+for x in con:
+  nums.append(x)
+print(nums)"""
+
+# Example 1:
+# Input: nums = [0,2,1,5,3,4]
+# Output: [0,1,2,4,5,3]
+# Explanation: The array ans is built as follows: 
+# ans = [nums[nums[0]], nums[nums[1]], nums[nums[2]], nums[nums[3]], nums[nums[4]], nums[nums[5]]]
+#     = [nums[0], nums[2], nums[1], nums[5], nums[3], nums[4]]
+#     = [0,1,2,4,5,3]
+# Example 2:
+# Input: nums = [5,0,1,2,3,4]
+# Output: [4,5,0,1,2,3]
+# Explanation: The array ans is built as follows:
+# ans = [nums[nums[0]], nums[nums[1]], nums[nums[2]], nums[nums[3]], nums[nums[4]], nums[nums[5]]]
+#     = [nums[5], nums[0], nums[1], nums[2], nums[3], nums[4]]
+#     = [4,5,0,1,2,3]
+"""class Solution:
+    def buildArray(self, nums):
+        ans = []
+
+        for i in range(len(nums)):
+            ans.append(nums[nums[i]])
+
+        return ans"""
+
+# """Example 1:
+# Input: word1 = ["ab", "c"], word2 = ["a", "bc"]
+# Output: true
+# Explanation:
+# word1 represents string "ab" + "c" -> "abc"
+# word2 represents string "a" + "bc" -> "abc"
+# The strings are the same, so return true.
+# Example 2:
+
+# Input: word1 = ["a", "cb"], word2 = ["ab", "c"]
+# Output: false
+# Example 3:
+
+# Input: word1  = ["abc", "d", "defg"], word2 = ["abcddefg"]
+# Output: true"""
+"""class Solution:
+    def arrayStringsAreEqual(self, word1: list[str], word2: list[str]) -> bool:
+        commen1 = ''.join(word2)
+        commen = ''.join(word1)
+        if commen == commen1:
+           return True
+        else:
+            return False
+        """
+
+# the first row consists of the characters "qwertyuiop",
+# the second row consists of the characters "asdfghjkl", and
+# the third row consists of the characters "zxcvbnm".
+# xample 1:
+# Input: words = ["Hello","Alaska","Dad","Peace"]
+# Output: ["Alaska","Dad"]
+# Explanation:
+# Both "a" and "A" are in the 2nd row of the American keyboard due to case insensitivity.
+# Example 2:
+# Input: words = ["omk"]
+# Output: []
+# Example 3:
+# Input: words = ["adsdf","sfd"]
+# Output: ["adsdf","sfd"]
+"""
+class Solution:
+    def findWords(self, words: list[str]) -> list[str]:
+
+        ans = []
+        row1 = set("qwertyuiop")
+        row2 = set("asdfghjkl")
+        row3 = set("zxcvbnm")
+
+for word in words:
+    lower_words = set(word.lower())
+
+    if (lower_words.issubset(row1) or
+        lower_words.issubset(row2) or
+        lower_words.issubset(row3)):
+
+        ans.append(word)
+
+return ans"""
+
+# Example 1:
+# Input: s = ["h","e","l","l","o"]
+# Output: ["o","l","l","e","h"]
+# Example 2:
+# Input: s = ["H","a","n","n","a","h"]
+# Output: ["h","a","n","n","a","H"]"""
+# s = ["H","a","n","n","a","h"]
+"""s.reverse()
+print(s)"""
+
+
+# Given two arrays of strings list1 and list2, find the common strings with the least index sum.
+# A common string is a string that appeared in both list1 and list2.
+# A common string with the least index sum is a common string such that if it appeared at list1[i] and list2[j] then i + j should be the minimum value among all the other common strings.
+# Return all the common strings with the least index sum. Return the answer in any order.
+# Example 1:
+# Input: list1 = ["Shogun","Tapioca Express","Burger King","KFC"], list2 = ["Piatti","The Grill at Torrey Pines","Hungry Hunter Steakhouse","Shogun"]
+# Output: ["Shogun"]
+# Explanation: The only common string is "Shogun".
+# Example 2:
+# Input: list1 = ["Shogun","Tapioca Express","Burger King","KFC"], list2 = ["KFC","Shogun","Burger King"]
+# Output: ["Shogun"]
+# Explanation: The common string with the least index sum is "Shogun" with index sum = (0 + 1) = 1.
+# Example 3:
+# Input: list1 = ["happy","sad","good"], list2 = ["sad","happy","good"]
+# Output: ["sad","happy"]
+# Explanation: There are three common strings:
+# "happy" with index sum = (0 + 1) = 1.
+# "sad" with index sum = (1 + 0) = 1.
+# "good" with index sum = (2 + 2) = 4.
+# The strings with the least index sum are "sad" and "happy".
+
+"""class Solution:
+    def findRestaurant(self, list1: list[str], list2: list[str]) -> list[str]:
+        smallest = float("inf")
+        for i in range(len(list1)):
+            for j in range(len(list2)):
+                if list1[i] == list2[j]:
+                    index_sum = i + j
+                    if index_sum < smallest:
+                        smallest = index_sum
+                        ans = []
+                        ans.append(list1[i])
+                    elif index_sum == smallest:
+                        ans.append(list1[i])
+        return ans"""
+
+
+# escape ghost
+"""class Solution:
+    def escapeGhosts(self, ghosts: list[list[int]], target: list[int]) -> bool:
+
+        my_distance = abs(target[0]) + abs(target[1])
+
+        for ghost in ghosts:
+            ghost_distance = abs(ghost[0] - target[0]) + abs(ghost[1] - target[1])
+
+            if ghost_distance <= my_distance:
+                return False
+
+        return True     """
+
+# Input: nums = [1, 2, 3, 3]
+# Output: true
+# Example 2:
+# Input: nums = [1, 2, 3, 4]
+# Output: false
+
+"""class Solution:
+    def hasDuplicate(self, nums: List[int]) -> bool:
+        seen = {}
+        if not nums:
+            found = False
+        else:
+            for i in nums:
+                if i not in seen:
+                    seen[i] = 1
+                else:
+                    seen[i] = seen[i] + 1
+            for x in seen:
+                if seen[x] > 1:
+                    found = True
+                    break
+                else:
+                    found = False
+        if found:
+            return True
+        else:
+            return False
+"""
+
+# this all above solution can replaced by one line code
+"""return len(nums) != len(set(nums))"""
+
+# Example 1:
+# Input: s = "racecar", t = "carrace"
+# Output: true
+# Example 2:
+# Input: s = "jar", t = "jam"
+# Output: false
+
+"""class Solution:
+    def isAnagram(self, s: str, t: str) -> bool:
+        if len(set(s)) != len(set(t)):
+            return False
+        else:
+            return sorted(s) == sorted(t)"""
+
+# Input: strs = ["act","pots","tops","cat","stop","hat"]
+# Output: [["hat"],["act", "cat"],["stop", "pots", "tops"]]
+# Example 2:
+# Input: strs = ["x"]
+# Output: [["x"]]
+# Example 3:
+# Input: strs = [""]
+# Output: [[""]]
+"""strs = ["act","pots","tops","cat","stop","hat"]
+group = {}
+for word in strs:
+  i = ''.join(sorted(word))
+  if i not in group:
+    group[i] = [word]
+  else:
+    group[i].append(word) 
+out_put = list(group.values())
+print(out_put)
+ """
+
+# Given an integer array `nums` and 
+# an integer `k`, return the `k` most frequent elements within the array.
+# The test cases are generated such that the answer is always **unique**.
+# You may return the output in **any order**.
+# Example 1:
+# Input: nums = [1,2,2,3,3,3], k = 2
+# Output: [2,3]
+# Example 2:
+# Input: nums = [7,7], k = 1
+# Output: [7]
+
+"""class Solution:
+    def topKFrequent(self, nums: list[int], k: int) -> list[int]:
+        freq = {}
+
+        # Count how many times each number appears
+        for num in nums:
+            if num not in freq:
+                freq[num] = 1
+            else:
+                freq[num] += 1
+
+        # Sort numbers by their frequency
+        sorted_freq = sorted(freq.items(), key=lambda x: x[1], reverse=True)
+
+        # Get the first k numbers
+        answer = []
+
+        for i in range(k):
+            answer.append(sorted_freq[i][0])
+
+        return answer"""
+
+  
+  
+
+
+    
+  
+
+
+
+
+  
