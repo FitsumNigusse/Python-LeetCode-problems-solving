@@ -1362,8 +1362,138 @@ print(out_put)
 
         return answer"""
 
+
+"""class Solution:
+    def isValid(self, s: str) -> bool:
+        stack = []
+        for char in s:
+            if char == '(' or char == '{' or char == '[':
+                stack.append(char)
+            else:
+                if len(stack) == 0:
+                    return False
+                top_element = stack[len(stack) - 1]
+                if char == ')' and top_element == '(':
+                    stack.pop()
+                    
+                elif char == '}' and top_element == '{':
+                    stack.pop()
+                    
+                elif char == ']' and top_element == '[':
+                    stack.pop()
+                    
+                else:
+                    return False
+        if len(stack) == 0:
+            return True
+        else:
+            return False
+"""
+# The idea is simple: count consecutive 0s, and keep the biggest count.
+# For example:
+# 1 0 0 1 0 → zero groups are 00 and 0 → answer is 2.
   
+"""t = int(input())
+
+for _ in range(t):
+    n = int(input())
+    arr = list(map(int, input().split()))
+
+    current = 0
+    longest = 0
+
+    for x in arr:
+        if x == 0:
+            current += 1
+            longest = max(longest, current)
+        else:
+            current = 0
+
+    print(longest)"""
   
+# Allen has a LOT of money. He has n dollars in the bank. For security reasons, 
+# he wants to withdraw it in cash (we will not disclose the reasons here). 
+# The denominations for dollar bills are 1
+# , 5,10,20,100
+# . What is the minimum number of bills Allen could receive after withdrawing his entire balance?
+# Examples
+# InputCopy
+# 125
+# OutputCopy
+# 3
+# InputCopy
+# 43
+# OutputCopy
+# 5
+# InputCopy
+# 1000000000
+# OutputCopy
+# 10000000
+
+"""n = int(input())
+
+coins = [100, 20, 10, 5, 1]
+ans = 0
+
+for coin in coins:
+    ans += n // coin
+    n %= coin
+
+print(ans)"""
+
+# Input
+# You will be given in the first line an integer T (1 ≤ T ≤ 20) the number of test cases.
+# Each test case begins with one integer N the count of the numbers given (1 ≤ N ≤ 104).
+# The next line contains N integers a1,a2,...,an (1 ≤ ai ≤ 105).
+# Output
+# For each test case print a single line, containing a single integer, the minimum number that has the
+# maximum number of digits among the other numbers
+"""T = int(input())
+max_digit = 0
+ans = 0
+for i in range(T):
+  N = int(input())
+  numbers = list(map(int , input().split()))
+  for x in numbers:
+    digit = len(str(x))
+    if digit > max_digit:
+      max_digit = digit
+      ans = x
+    elif len(str(x)) == max_digit and x < ans:
+      ans = x
+  print(ans)
+  
+"""
+
+# Input
+# The first line of the input contains an integer t (1 ≤ t ≤ 10) the number of test cases.
+# The first line of each test case contains an integer n (1 ≤ n ≤ 104) the number of elements in the array.
+# The second line of each test case contains n integers (1 ≤ ai ≤ 109). The elements of the array a.
+# Output
+# For each test case, print a single line containing n elements, The lexicographically largest array by making
+# the operation any number of times as you want.
+
+"""even = []
+odd = []
+a = [4,8,3,5]
+for i in a:
+    if i % 2 == 0:
+        even.append(i)
+    else:
+        odd.append(i)
+
+even.sort(reverse=True)
+odd.sort(reverse=True)
+
+answer = []
+
+for i in a:
+    if i % 2 == 0:
+        answer.append(even.pop(0))
+    else:
+        answer.append(odd.pop(0))
+
+print(answer)"""
 
 
     
